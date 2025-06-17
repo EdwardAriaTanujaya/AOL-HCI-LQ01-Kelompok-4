@@ -1,0 +1,553 @@
+:root {
+  --orange: rgba(252, 96, 18, 0.986);
+  --blue: rgb(25, 120, 228);
+  /* --dark-blue: rgb(12, 55, 129); */
+  --dark-blue: #17267a;
+  /* --light-gray: rgb(242, 247, 253); */
+  --light-gray: #f6f6ff;
+  --light: #f5f5f5;
+  --dark: #292929;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-color: white;
+  color: var(--dark);
+  line-height: 1.4;
+}
+
+/* Navigation Bar */
+.navbar-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 10rem;
+}
+
+header {
+  position: fixed;
+  background-color: white;
+  border-bottom: 1px solid lightgray;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo a {
+  margin: 0;
+  padding: 0;
+  text-decoration: 0;
+  display: inline-block;
+}
+
+.logo img {
+  display: block;
+  height: auto;
+  width: 90px;
+}
+
+.nav-links {
+  margin-left: 7.5rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links li a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 1rem;
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 600;
+  padding: 12px 10px;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-radius: 1rem;
+  height: 1.5px;
+  background-color: var(--orange);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s linear;
+}
+
+.nav-links li a:hover {
+  font-weight: 600;
+  color: var(--orange);
+  /* color: var(--blue);
+  background-color: rgb(242, 247, 253);
+  border-radius: 0.5rem; */
+}
+
+.nav-links li a:hover::after {
+  transform: scaleX(0.3);
+}
+
+.nav-links li a.active {
+  color: var(--dark-blue);
+  font-weight: 600;
+}
+
+.nav-links li a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-radius: 1rem;
+  height: 1.5px;
+  background-color: var(--orange);
+  transform: scaleX(0.3);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.language {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.langs {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.lang {
+  text-decoration: none;
+  font-weight: 400;
+  color: gray;
+}
+
+.lang.active {
+  font-weight: 600;
+  color: var(--orange);
+}
+
+.cta-button {
+  display: flex;
+  align-items: center;
+}
+
+.login-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 10px 16px;
+  border-radius: 60px;
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.login-btn:hover {
+  color: white;
+  background-color: var(--blue);
+}
+
+/* Top Information */
+#top-information {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem 10rem;
+  background-color: white;
+  box-shadow: var(--shadow);
+}
+
+.return {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  align-items: center;
+}
+
+.return a {
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--dark);
+}
+
+.return:hover {
+  color: var(--blue);
+}
+
+.return:hover a {
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.instructions {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.instructions p {
+  font-size: 14px;
+  color: gray;
+}
+
+.instructions p span {
+  padding: 3px 9px;
+  border-radius: 64px;
+}
+
+.instructions p.done {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.instructions p.done span {
+  background-color: var(--blue);
+  color: white;
+  margin-right: 2px;
+}
+
+/* Personal Data */
+#personal-data {
+  padding: 3rem 10rem;
+  background-color: var(--light-gray);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.data-data {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.data-pemesan,
+.data-penumpang {
+  display: flex;
+  flex-direction: column;
+}
+
+.data-pemesan h2,
+.data-penumpang h2 {
+  margin-bottom: 4px;
+}
+
+.form-container {
+  margin-top: 1.5rem;
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.2rem 2rem;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.title-type,
+.identity-type {
+  display: flex;
+  gap: 2rem;
+  font-size: 1rem;
+  justify-content: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.title,
+.identity {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+input[type="radio"] {
+  accent-color: var(--blue);
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.info-pemesan label {
+  font-weight: 600;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+input[type="text"]:focus {
+  background-color: rgb(252, 252, 252);
+  border: 2px solid rgb(4, 135, 235);
+  outline: none;
+}
+
+.data-penumpang h3 {
+  margin-bottom: 16px;
+}
+
+.identity-type label {
+  font-weight: 500;
+}
+
+.next-btn {
+  align-self: flex-end;
+  margin-top: 2rem;
+  padding: 16px;
+  display: flex;
+  width: 40%;
+  background: var(--blue);
+  border-radius: 8px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.next-btn:hover {
+  background: rgb(4, 73, 210);
+}
+
+.ticket-info {
+  flex: 1;
+  width: 400px;
+  max-height: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  border-radius: 16px;
+  background-color: white;
+  box-shadow: var(--shadow);
+}
+
+.ticket-info .berangkat p {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--dark);
+  margin-bottom: 1.2rem;
+}
+
+.info-kereta {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.info-kereta img {
+  height: 18px;
+  width: 40px;
+  margin-bottom: 0.5rem;
+}
+
+.info-kereta .nama-kereta {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.info-kereta .nama-kereta span {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.kota {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.kota svg {
+  color: var(--orange);
+  transform: scale(1.3);
+}
+
+.kota p {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.total-bayar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.total-bayar p {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.total-bayar .harga {
+  font-size: 20px;
+  color: var(--orange);
+  font-weight: 600;
+}
+
+/* Footer */
+#footer {
+  width: 100%;
+  height: 100%;
+  padding: 4rem 10rem;
+  background-color: var(--dark-blue);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.footer-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer-logo img {
+  max-height: 40px;
+  width: auto;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.footer-links-headline {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.footer-nav a,
+.footer-nav .footer-text {
+  text-decoration: none;
+  color: white;
+  transition: all 0.2s ease;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.footer-nav a:hover {
+  transform: translateX(8px);
+  font-weight: 500;
+}
+
+.footer-links,
+.footer-help {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-sosmed {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-sosmed .sosmed-apps {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-sosmed .sosmed-apps svg {
+  width: 22px;
+  height: auto;
+}
+
+.footer-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.footer-app {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-app .app-logo {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.footer-app .app-logo img {
+  max-height: 60px;
+  width: auto;
+  border-radius: 0;
+}
+
+.footer-desc {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-right: 5rem;
+}
